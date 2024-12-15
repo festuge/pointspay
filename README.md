@@ -46,7 +46,7 @@ CREATE DATABASE production_db;
 
 
 # Applied all configuration files for rbac and secret
-kubectl apply -f <file-name>
+kubectl apply -f all-config-files
 
 
 # Set environmental variables for staging environment
@@ -93,10 +93,10 @@ Database connection closed.
 
 kubectl apply -f staging-deploy.yaml
 
-staging-app-86f7c9f895-nzxpc   1/1     Running   0          31s
+staging-app-86f7c9f895-nzxpc      1/1        Running      0             31s
 
 # deploy app in production environment
 
 kubectl get pods -n production
 
-production-app-84955d7c45-v4w2x   1/1     Running   0          26s
+production-app-84955d7c45-v4w2x      1/1        Running      0             26s
