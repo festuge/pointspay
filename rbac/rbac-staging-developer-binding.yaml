@@ -1,0 +1,14 @@
+# rbac-staging-developer-binding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: staging
+  name: developer-binding
+subjects:
+- kind: User
+  name: developer-user
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: developer
+  apiGroup: rbac.authorization.k8s.io

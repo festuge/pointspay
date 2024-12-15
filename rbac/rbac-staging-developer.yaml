@@ -1,0 +1,10 @@
+# rbac-staging-developer.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: staging
+  name: developer
+rules:
+- apiGroups: [""]
+  resources: ["pods", "secrets", "services", "configmaps"]
+  verbs: ["create", "get", "list", "watch", "update", "delete"]

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staging-app
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: staging-app
+  template:
+    metadata:
+      labels:
+        app: staging-app
+    spec:
+      containers:
+      - name: staging-container
+        image: nginx:latest
+        env:
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: rds-credentials
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: rds-credentials
+              key: password
+        - name: DB_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              name: rds-credentials
+              key: endpoint
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: rds-credentials
+              key: database
