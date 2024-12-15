@@ -40,7 +40,7 @@ kubectl config set-context admin-context \
 
 # I created the RDS; mysql database in my AWS consol in the eu-central-1 region where I made sure I had 3 subnets in different AZs, and created an initial database; staging_db in the process. Then, I created an Internet Gateway to allow access into the mysql database to which I enabled public access. I also configured the security group of the VPC to allow inbound traffic of type MYSQL/Aurora on port 3306. After creation;
 
-mysql -h <database-endpoint> -u admin -p
+mysql -h database-endpoint -u admin -p
 
 CREATE DATABASE production_db;
 
